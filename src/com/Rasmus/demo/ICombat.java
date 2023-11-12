@@ -1,2 +1,5 @@
-package com.Rasmus.demo;public interface ICombat {
+package com.Rasmus.demo;
+
+public interface ICombat {
+    boolean didDodge(int agi);
 }
