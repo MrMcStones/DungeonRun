@@ -47,40 +47,38 @@ public class Player {
     }
 
     public boolean isAlive() {
-        return fullHealth > 0;
+        return this.fullHealth > 0;
     }
 
     public boolean lose() {
-        return currentHealth <= 0;
+        return this.currentHealth <= 0;
     }
 
     private void levelUp() {
-        if (getExperience() >= 100) {
-            setLevel(getLevel() + 1);
-            setExperience(getExperience() - 1);
-            setFullHealth(getFullHealth() + 10);
-            setCurrentHealth(getFullHealth());
-            setIntelligence(getIntelligence() + 2);
-            setAgility(getAgility() + 2);
-            setStrength(getStrength() + 2);
-            setBaseDamage(getBaseDamage() + 2);
-            System.out.println("You leveled up!");
-        }
+        setLevel(getLevel() + 1);
+        setExperience(getExperience() - 1);
+        setFullHealth(getFullHealth() + 10);
+        setCurrentHealth(getFullHealth());
+        setIntelligence(getIntelligence() + 2);
+        setAgility(getAgility() + 2);
+        setStrength(getStrength() + 2);
+        setBaseDamage(getBaseDamage() + 2);
+        System.out.println("You leveled up!");
     }
 
     public void gainedExp(int exp) {
-        experience += exp;
-        if (experience >= 100) {
+        this.experience += exp;
+        if (this.experience >= 10) {
             levelUp();
         }
     }
 
     public void fullHeal() {
-        currentHealth = fullHealth;
+        this.currentHealth = this.fullHealth;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -88,7 +86,7 @@ public class Player {
     }
 
     public int getStrength() {
-        return strength;
+        return this.strength;
     }
 
     public void setStrength(int strength) {
@@ -96,7 +94,7 @@ public class Player {
     }
 
     public int getIntelligence() {
-        return intelligence;
+        return this.intelligence;
     }
 
     public void setIntelligence(int intelligence) {
@@ -104,7 +102,7 @@ public class Player {
     }
 
     public int getAgility() {
-        return agility;
+        return this.agility;
     }
 
     public void setAgility(int agility) {
@@ -112,7 +110,7 @@ public class Player {
     }
 
     public int getFullHealth() {
-        return fullHealth;
+        return this.fullHealth;
     }
 
     public void setFullHealth(int fullHealth) {
@@ -120,7 +118,7 @@ public class Player {
     }
 
     public int getCurrentHealth() {
-        return currentHealth;
+        return this.currentHealth;
     }
 
     public void setCurrentHealth(int currentHealth) {
@@ -136,7 +134,7 @@ public class Player {
     }
 
     public int getLevel() {
-        return level;
+        return this.level;
     }
 
     public void setLevel(int level) {
@@ -144,7 +142,7 @@ public class Player {
     }
 
     public int getBaseDamage() {
-        return baseDamage;
+        return this.baseDamage;
     }
 
     public void setBaseDamage(int baseDamage) {
@@ -152,9 +150,9 @@ public class Player {
     }
 
     public void takeDamage(int damage) {
-        currentHealth -= damage;
-        if (currentHealth < 0 ) {
-            currentHealth = 0;
+        this.currentHealth -= damage;
+        if (this.currentHealth < 0 ) {
+            this.currentHealth = 0;
         }
     }
 
@@ -170,14 +168,14 @@ public class Player {
     }
 
     public void getStatus() {
-        System.out.printf("Character Name: %s %n", name);
-        System.out.printf("Level: %d %n", level);
-        System.out.printf("Experience: %d %n", experience);
-        System.out.printf("\nHealth: %d %n", fullHealth);
-        System.out.printf("BaseDamage: %d %n", baseDamage);
-        System.out.printf("\nStrength: %d %n", strength);
-        System.out.printf("Intelligence: %d %n", intelligence);
-        System.out.printf("Agility: %d %n", agility);
+        System.out.printf("Character Name: %s %n", this.name);
+        System.out.printf("Level: %d %n", this.level);
+        System.out.printf("Experience: %d %n", this.experience);
+        System.out.printf("\nHealth: %d %n", this.fullHealth);
+        System.out.printf("BaseDamage: %d %n", this.baseDamage);
+        System.out.printf("\nStrength: %d %n", this.strength);
+        System.out.printf("Intelligence: %d %n", this.intelligence);
+        System.out.printf("Agility: %d %n", this.agility);
         System.out.println();
     }
 
