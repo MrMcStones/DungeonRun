@@ -62,7 +62,7 @@ public class Game {
 
             switch (sc.nextLine()) {
                 case "1" -> battle(player, monster);
-                case "2" -> player.flee();
+                case "2" -> player.flee(monster);
                 case "3" -> player.getStatus();
                 case "4" -> monster.getStatus();
 

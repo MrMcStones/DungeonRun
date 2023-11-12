@@ -33,12 +33,12 @@ public class Player {
         return randomValue < agility;
     }
 
-    public void flee() {
+    public void flee(Monster monster) {
         Random random = new Random();
-        setAgility(getAgility());
         int successChance = getAgility();
+        int failChance = monster.getStrength();
 
-        if (random.nextInt(100) < successChance) {
+        if (random.nextInt(monster.getStrength()) < successChance) {
             System.out.println("You got away safely!");
         } else {
             takeDamage(20);
@@ -55,9 +55,8 @@ public class Player {
     }
 
     private void levelUp() {
-        if (getExperience() >= 10) {
             setLevel(getLevel() + 1);
-            setExperience(getExperience() - 10);
+            setExperience(0);
             setFullHealth(getFullHealth() + 10);
             setCurrentHealth(getFullHealth());
             setIntelligence(getIntelligence() + 2);
@@ -65,7 +64,6 @@ public class Player {
             setStrength(getStrength() + 2);
             setBaseDamage(getBaseDamage() + 2);
             System.out.println("You leveled up!");
-        }
     }
 
     public void gainedExp(int exp) {

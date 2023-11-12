@@ -7,9 +7,9 @@ public class Main {
                 5, 50, 100, 1, 50);
 
         Monster[] monsters = new Monster[]{
-                new Monster("Thrall", 2, 10, 10, 2),
-                new Monster("Dragon", 10, 100, 100, 5),
-                new Monster("Sorcerer", 6, 30, 30, 4)
+                new Monster("Thrall", 2, 10, 10, 10, 5),
+                new Monster("Dragon", 10, 10, 100, 100, 5),
+                new Monster("Sorcerer", 6, 10, 30, 30, 5)
         };
 
         Game game = new Game(player, monsters);

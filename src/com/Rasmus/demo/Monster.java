@@ -5,13 +5,15 @@ import static com.Rasmus.demo.Game.random;
 public class Monster {
     private String name;
     private int strength;
+    private int agility;
     private int fullHealth;
     private int currentHealth;
     private int baseDamage;
 
-    public Monster(String name, int strength, int fullHealth, int currentHealth, int baseDamage) {
+    public Monster(String name, int strength, int agility, int fullHealth, int currentHealth, int baseDamage) {
         this.name = name;
         this.strength = strength;
+        this.agility = agility;
         this.fullHealth = fullHealth;
         this.currentHealth = currentHealth;
         this.baseDamage = baseDamage;
@@ -63,6 +65,14 @@ public class Monster {
 
     public void setStrength(int strength) {
         this.strength = strength;
+    }
+
+    public int getAgility() {
+        return agility;
+    }
+
+    public void setAgility(int agility) {
+        this.agility = agility;
     }
 
     public int getFullHealth() {
