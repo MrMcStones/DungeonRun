@@ -55,9 +55,9 @@ public class Player {
     }
 
     private void levelUp() {
-        if (getExperience() >= 100) {
+        if (getExperience() >= 10) {
             setLevel(getLevel() + 1);
-            setExperience(getExperience() - 1);
+            setExperience(getExperience() - 10);
             setFullHealth(getFullHealth() + 10);
             setCurrentHealth(getFullHealth());
             setIntelligence(getIntelligence() + 2);
@@ -69,8 +69,8 @@ public class Player {
     }
 
     public void gainedExp(int exp) {
-        experience += exp;
-        if (experience >= 100) {
+        this.experience += exp;
+        if (experience >= 10) {
             levelUp();
         }
     }
