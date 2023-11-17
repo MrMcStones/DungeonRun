@@ -24,34 +24,41 @@ public class Player {
     }
 
     public int calculateDamage() {
-        return getBaseDamage() + getStrength();
+        return getBaseDamage() + (getStrength() * 2 / 4 + 1);
     }
 
     public boolean didDodge() {
         int agility = getAgility();
-        int randomValue = new Random().nextInt(50);
+        int randomValue = new Random().nextInt(10);
         return randomValue < agility;
+    }
+
+    public void takeDamage(int damage) {
+        currentHealth -= damage;
+        if (currentHealth < 0 ) {
+            currentHealth = 0;
+        }
     }
 
     public void flee(Monster monster) {
         Random random = new Random();
         int successChance = getAgility();
-        int failChance = monster.getStrength();
+        int failChance = monster.getAgility();
 
-        if (random.nextInt(monster.getStrength()) < successChance) {
+        if (random.nextInt(failChance) < successChance) {
             System.out.println("You got away safely!");
         } else {
-            takeDamage(20);
+            int monsterDamage = monster.calculateDamage();
+            takeDamage(monsterDamage);
+
             System.out.println("You could not escape...");
+            System.out.println("You took " + monsterDamage + " damage!");
+            System.out.println("Health: " + getCurrentHealth() + "/" + getFullHealth());
         }
     }
 
     public boolean isAlive() {
         return fullHealth > 0;
-    }
-
-    public boolean lose() {
-        return currentHealth <= 0;
     }
 
     private void levelUp() {
@@ -149,29 +156,11 @@ public class Player {
         this.baseDamage = baseDamage;
     }
 
-    public void takeDamage(int damage) {
-        currentHealth -= damage;
-        if (currentHealth < 0 ) {
-            currentHealth = 0;
-        }
-    }
-
-    public void calculateExpToLvl(int amountOfExp) {
-        for (int i = amountOfExp; i > 0; i--) {
-            setExperience(getExperience() + 1);
-
-            if (getExperience() == 100) {
-                setLevel(getLevel() + 1);
-                setExperience(0);
-            }
-        }
-    }
-
     public void getStatus() {
         System.out.printf("Character Name: %s %n", name);
         System.out.printf("Level: %d %n", level);
         System.out.printf("Experience: %d %n", experience);
-        System.out.printf("\nHealth: %d %n", fullHealth);
+        System.out.println("\nHealth: " + currentHealth + "/" + fullHealth);
         System.out.printf("BaseDamage: %d %n", baseDamage);
         System.out.printf("\nStrength: %d %n", strength);
         System.out.printf("Intelligence: %d %n", intelligence);

@@ -1,5 +1,6 @@
 package com.Rasmus.demo;
 
+import static com.Rasmus.demo.Colors.*;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -16,7 +17,7 @@ public class Game {
     }
 
     public void start() {
-        System.out.println("Welcome to the DungeonRun!");
+        System.out.println(YELLOW + "Welcome to the DungeonRun!");
         System.out.println("What is your name?");
         player.setName(sc.nextLine());
         System.out.println("Nice to meet you " + player.getName() + ", good luck on your adventure!");
@@ -98,7 +99,6 @@ public class Game {
         }
 
         if (player.getCurrentHealth() <= 0) {
-            player.lose();
             System.out.println("You died...");
             System.out.println("""
                     1. Restart with a new encounter and full health
