@@ -7,5 +7,4 @@ public interface ICharacter {
     int calculateDamage();
 
     void takeDamage(int damage);
-
 }

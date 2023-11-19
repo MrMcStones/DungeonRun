@@ -20,27 +20,3 @@ public class Main {
 
     }
 }
-
-// TODO
-/*
-Klasser:
-Följande klasser ska finnas med i spelet
-Godkänt:
-• Player
-• Monster
-• ICombat (Interface) (Eller abstrakt klass)
-• Enhetstester
-Väl Godkänt:
-• Shop
-• Weapon
-• WriteScoreFile
-• Färger
-• Felhantering
-• Fördjupande Enhetstester
-
-när man möter monster skapas random guld och vid slayed så läggs det till för player.
-public interface 'character' - public class player implements icharacter, samma på monster.
-sen skapar du tomma metoder i icharacter som takedamage etc. - de funktioner som finns i båda klasser.
-då är interface skapat som implementerar båda klasserna.
-icharacter är en karta över alla karaktärer oavsett spelare elr monster - de kan ta skada, dö osv.
- */

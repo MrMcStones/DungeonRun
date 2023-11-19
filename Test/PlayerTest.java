@@ -78,10 +78,3 @@ public class PlayerTest {
         assertFalse(testPlayer.isAlive());
     }
 }
-
-/* TODO - What could go wrong?
- *  Compare datatype (String, Int)
- *  Wrong value
- *  Wrong code - return value
- *  Percent value
- */
