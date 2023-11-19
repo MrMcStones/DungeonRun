@@ -53,13 +53,15 @@ public class Player implements ICombat {
         }
     }
 
-    public void flee(Monster monster) {
+    public boolean flee(Monster monster) {
         Random random = new Random();
         int successChance = getAgility();
         int failChance = monster.getAgility();
 
         if (random.nextInt(failChance) < successChance) {
             System.out.println(Colors.YELLOW + "You got away safely!");
+            System.out.println();
+            return true;
         } else {
             int monsterDamage = monster.calculateDamage();
             takeDamage(monsterDamage);
@@ -67,6 +69,7 @@ public class Player implements ICombat {
             System.out.println(Colors.YELLOW + "You could not escape...");
             System.out.println("You took " + monsterDamage + " damage!");
             System.out.println("Health: " + getCurrentHealth() + "/" + getFullHealth());
+            return false;
         }
     }
 

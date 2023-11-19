@@ -25,13 +25,7 @@ public class Game {
 
         boolean quit = false;
         do {
-            System.out.println("What would you like to do?" + GREEN +
-                    """
-                    
-                    1. Look for an encounter
-                    2. Check your status
-                    3. Exit Game
-                    """ + YELLOW);
+            Display.startMenu(player);
 
             String choice = sc.nextLine();
             switch (choice) {
@@ -49,26 +43,18 @@ public class Game {
     public void fightMenu(Player player) {
         do {
             Monster monster = monsters[new Random().nextInt(monsters.length)];
-            System.out.println(YELLOW + "You encountered a " + monster.getName());
-            System.out.println(RED + "Health: " + monster.getFullHealth() + YELLOW);
+            System.out.println(YELLOW + "You have encountered a " + monster.getName());
+            System.out.println(RED + "Health: " + monster.getCurrentHealth() + "/" + monster.getFullHealth() + YELLOW);
             monster.setCurrentHealth(monster.getFullHealth());
             System.out.println();
 
             do {
-                System.out.println("What would you like to do " + GREEN + player.getName() + YELLOW + "?" + GREEN);
-                System.out.println("""
-                        1. Battle
-                        2. Flee
-                        3. Check your status
-                        4. Check opponents status
-                        5. Exit game
-                        """);
+                Display.fightMenu(player);
 
                 switch (sc.nextLine()) {
                     case "1" -> battle(player, monster);
                     case "2" -> {
-                        player.flee(monster);
-                        if (player.isAlive()) {
+                        if (player.flee(monster)) {
                             fightMenu(player);
                         }
                     }
@@ -83,11 +69,11 @@ public class Game {
     }
 
     public void battle(Player player, Monster monster) {
-        System.out.println(YELLOW + "Inside Battle");
+        System.out.println(YELLOW_UNDERLINED + "Inside Battle");
 
         int playerDamage = player.calculateDamage();
 
-        System.out.println("You attacked the: " + RED + monster.getName() + YELLOW + " for " + playerDamage
+        System.out.println(YELLOW + "You attacked the: " + RED + monster.getName() + YELLOW + " for " + playerDamage
                 + " damage!");
         monster.takeDamage(player.calculateDamage());
         System.out.println(RED + monster.getName() + YELLOW + " remaining health: " + monster.getCurrentHealth());
@@ -96,7 +82,7 @@ public class Game {
             int monsterDamage = monster.attack(player);
             player.takeDamage(monster.calculateDamage());
             System.out.println("You took " + monsterDamage + " damage!");
-            System.out.println(player.getName() + " remaining health: " + player.getCurrentHealth());
+            System.out.println(GREEN + player.getName() + YELLOW + " remaining health: " + player.getCurrentHealth());
             System.out.println();
         } else {
             System.out.println("You slayed the " + RED + monster.getName());
@@ -106,18 +92,18 @@ public class Game {
         }
 
         if (player.getCurrentHealth() <= 0) {
-            System.out.println(PURPLE_BOLD + "You died...");
-            System.out.println("""
-                    1. Restart with a new encounter and full health
-                    2. Exit game
-                    """);
-            String choice = sc.nextLine();
-            switch (choice) {
-                case "1" -> reset();
-                case "2" -> exitGame();
+            death();
+        }
+    }
 
-                default -> System.out.println(RED + "Invalid choice. Type in your choice with the corresponding number." + YELLOW);
-            }
+    public void death() {
+        Display.playerDied();
+        String choice = sc.nextLine();
+        switch (choice) {
+            case "1" -> reset();
+            case "2" -> exitGame();
+
+            default -> System.out.println(RED + "Invalid choice. Type in your choice with the corresponding number." + YELLOW);
         }
     }
 

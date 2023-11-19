@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="418d8702-a519-4197-947a-220335b35cd9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Display.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/ICombat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/ICombat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Monster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +46,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
@@ -134,7 +134,7 @@
       <workItem from="1699544235032" duration="60000" />
       <workItem from="1699544611098" duration="37875000" />
       <workItem from="1700089432599" duration="55000" />
-      <workItem from="1700228316850" duration="22185000" />
+      <workItem from="1700228316850" duration="26700000" />
     </task>
     <servers />
   </component>
