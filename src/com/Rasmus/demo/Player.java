@@ -2,6 +2,8 @@ package com.Rasmus.demo;
 
 import java.util.Random;
 
+import static com.Rasmus.demo.Game.random;
+
 public class Player implements ICombat {
     private String name;
     private int strength;
@@ -24,7 +26,18 @@ public class Player implements ICombat {
     }
 
     public int calculateDamage() {
-        return getBaseDamage() + (getStrength() * 2 / 4 + 1);
+        if (critDamage()) {
+            System.out.println("You made a 'critical hit'!");
+            return (getBaseDamage() + (getStrength() * 2 / 4 + 1)) *2;
+        } else {
+            return getBaseDamage() + (getStrength() * 2 / 4 + 1);
+        }
+    }
+
+    public boolean critDamage() {
+        int critChance = getIntelligence();
+        int randomNumber = random.nextInt(100) + 1;
+        return randomNumber <= critChance;
     }
 
     public boolean didDodge() {
@@ -46,12 +59,12 @@ public class Player implements ICombat {
         int failChance = monster.getAgility();
 
         if (random.nextInt(failChance) < successChance) {
-            System.out.println("You got away safely!");
+            System.out.println(Colors.YELLOW + "You got away safely!");
         } else {
             int monsterDamage = monster.calculateDamage();
             takeDamage(monsterDamage);
 
-            System.out.println("You could not escape...");
+            System.out.println(Colors.YELLOW + "You could not escape...");
             System.out.println("You took " + monsterDamage + " damage!");
             System.out.println("Health: " + getCurrentHealth() + "/" + getFullHealth());
         }

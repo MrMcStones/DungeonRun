@@ -2,7 +2,6 @@ package com.Rasmus.demo;
 
 import static com.Rasmus.demo.Colors.*;
 
-import java.sql.SQLOutput;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -34,18 +33,17 @@ public class Game {
                     3. Exit Game
                     """ + YELLOW);
 
-            switch (sc.nextLine()) {
-                case "1" : fightMenu(player);
-                case "2" : player.getStatus();
-                break;
-                case "3" : quit = true;
+            String choice = sc.nextLine();
+            switch (choice) {
+                case "1" -> fightMenu(player);
+                case "2" -> player.getStatus();
+                case "3" -> quit = true;
 
-                default:
-                    System.out.println("Invalid choice. Select a valid option.");
+                default ->
+                    System.out.println(RED + "Invalid choice. Type in your choice with the corresponding number." + YELLOW);
             }
         } while (!quit);
-        System.out.println("Thank you for playing!");
-        sc.close();
+        exitGame();
     }
 
     public void fightMenu(Player player) {
@@ -53,6 +51,7 @@ public class Game {
             Monster monster = monsters[new Random().nextInt(monsters.length)];
             System.out.println(YELLOW + "You encountered a " + monster.getName());
             System.out.println(RED + "Health: " + monster.getFullHealth() + YELLOW);
+            monster.setCurrentHealth(monster.getFullHealth());
             System.out.println();
 
             do {
@@ -75,9 +74,9 @@ public class Game {
                     }
                     case "3" -> player.getStatus();
                     case "4" -> monster.getStatus();
-                    case "5" -> System.exit(0);
+                    case "5" -> exitGame();
 
-                    default -> System.out.println("Invalid choice. Select a valid option.");
+                    default -> System.out.println(RED + "Invalid choice. Type in your choice with the corresponding number." + YELLOW);
                 }
             } while (player.isAlive() && monster.isAlive());
         } while (player.isAlive());
@@ -93,10 +92,8 @@ public class Game {
         monster.takeDamage(player.calculateDamage());
         System.out.println(RED + monster.getName() + YELLOW + " remaining health: " + monster.getCurrentHealth());
 
-        int monsterDamage = monster.attack(player);
-
         if (monster.getCurrentHealth() >= 1) {
-
+            int monsterDamage = monster.attack(player);
             player.takeDamage(monster.calculateDamage());
             System.out.println("You took " + monsterDamage + " damage!");
             System.out.println(player.getName() + " remaining health: " + player.getCurrentHealth());
@@ -114,17 +111,23 @@ public class Game {
                     1. Restart with a new encounter and full health
                     2. Exit game
                     """);
-
-            switch (sc.nextLine()) {
+            String choice = sc.nextLine();
+            switch (choice) {
                 case "1" -> reset();
-                case "2" -> System.exit(0);
+                case "2" -> exitGame();
+
+                default -> System.out.println(RED + "Invalid choice. Type in your choice with the corresponding number." + YELLOW);
             }
         }
-
     }
 
     public void reset() {
         player.fullHeal();
         fightMenu(player);
+    }
+
+    public void exitGame() {
+        System.out.println(YELLOW + "Thank you for playing!");
+        System.exit(0);
     }
 }

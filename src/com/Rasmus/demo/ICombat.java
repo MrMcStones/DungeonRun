@@ -6,4 +6,6 @@ public interface ICombat {
 
     int calculateDamage();
 
+    void takeDamage(int damage);
+
 }

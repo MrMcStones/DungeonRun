@@ -42,10 +42,11 @@ public class Monster implements ICombat{
     }
 
     public void getStatus() {
-        System.out.printf("Name: %s %n", name);
-        System.out.printf("\nHealth: %d %n", fullHealth);
-        System.out.printf("\nStrength: %d %n", strength);
-        System.out.printf("BaseDamage: %d %n", baseDamage);
+        System.out.printf("%sMonster: %s %n", Colors.GREEN_BOLD, name);
+        System.out.printf("\n%sHealth: %s%d/%d %n", Colors.RED_BOLD, Colors.RED, currentHealth, fullHealth);
+        System.out.printf("%sBaseDamage: %s%d %n", Colors.PURPLE_BOLD, Colors.PURPLE, baseDamage);
+        System.out.printf("\n%sStrength: %s%d %n", Colors.RED_BOLD, Colors.RED, strength);
+        System.out.printf("%sAgility: %s%d %n%n", Colors.YELLOW_BOLD, Colors.YELLOW, agility);
         System.out.println();
     }
 
