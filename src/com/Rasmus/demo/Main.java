@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         Player player = new Player(2, 3,
-                5, 50, 50, 1, 5);
+                3, 50, 50, 1, 5);
 
         Monster[] monsters = new Monster[]{
                 new Monster(CYAN + "Thrall", 1, 1, 5, 5, 1),

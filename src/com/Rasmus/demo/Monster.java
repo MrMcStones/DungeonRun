@@ -2,7 +2,7 @@ package com.Rasmus.demo;
 
 import static com.Rasmus.demo.Game.random;
 
-public class Monster implements ICombat{
+public class Monster implements ICharacter {
     private String name;
     private int strength;
     private int agility;
@@ -25,7 +25,7 @@ public class Monster implements ICombat{
 
     public int attack(Player player) {
         int monsterDamage = calculateDamage();
-        if (player.didDodge()) {
+        if (player.didDodge(getAgility())) {
             System.out.println("You dodged the attack!");
             return 0;
         } else {

@@ -1,6 +1,6 @@
 package com.Rasmus.demo;
 
-public interface ICombat {
+public interface ICharacter {
 
     boolean isAlive();
 

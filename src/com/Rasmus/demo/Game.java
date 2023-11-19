@@ -43,9 +43,9 @@ public class Game {
     public void fightMenu(Player player) {
         do {
             Monster monster = monsters[new Random().nextInt(monsters.length)];
+            monster.setCurrentHealth(monster.getFullHealth());
             System.out.println(YELLOW + "You have encountered a " + monster.getName());
             System.out.println(RED + "Health: " + monster.getCurrentHealth() + "/" + monster.getFullHealth() + YELLOW);
-            monster.setCurrentHealth(monster.getFullHealth());
             System.out.println();
 
             do {
@@ -69,18 +69,17 @@ public class Game {
     }
 
     public void battle(Player player, Monster monster) {
-        System.out.println(YELLOW_UNDERLINED + "Inside Battle");
+        System.out.println(YELLOW_UNDERLINED + "Inside Battle" + YELLOW);
 
         int playerDamage = player.calculateDamage();
 
         System.out.println(YELLOW + "You attacked the: " + RED + monster.getName() + YELLOW + " for " + playerDamage
                 + " damage!");
-        monster.takeDamage(player.calculateDamage());
+        monster.takeDamage(playerDamage);
         System.out.println(RED + monster.getName() + YELLOW + " remaining health: " + monster.getCurrentHealth());
 
         if (monster.getCurrentHealth() >= 1) {
             int monsterDamage = monster.attack(player);
-            player.takeDamage(monster.calculateDamage());
             System.out.println("You took " + monsterDamage + " damage!");
             System.out.println(GREEN + player.getName() + YELLOW + " remaining health: " + player.getCurrentHealth());
             System.out.println();

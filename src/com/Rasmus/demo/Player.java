@@ -4,7 +4,7 @@ import java.util.Random;
 
 import static com.Rasmus.demo.Game.random;
 
-public class Player implements ICombat {
+public class Player implements ICharacter {
     private String name;
     private int strength;
     private int intelligence;
@@ -28,22 +28,22 @@ public class Player implements ICombat {
     public int calculateDamage() {
         if (critDamage()) {
             System.out.println("You made a 'critical hit'!");
-            return (getBaseDamage() + (getStrength() * 2 / 4 + 1)) *2;
+            return (getBaseDamage() + (getStrength() * 2 / 4 + 1)) *2 + (random.nextInt(6) - 2);
         } else {
-            return getBaseDamage() + (getStrength() * 2 / 4 + 1);
+            return getBaseDamage() + (getStrength() * 2 / 4 + 1) + (random.nextInt(6) -2);
         }
     }
 
     public boolean critDamage() {
         int critChance = getIntelligence();
-        int randomNumber = random.nextInt(100) + 1;
+        int randomNumber = random.nextInt(25) + 1;
         return randomNumber <= critChance;
     }
 
-    public boolean didDodge() {
+    public boolean didDodge(int monsterAgility) {
         int agility = getAgility();
         int randomValue = new Random().nextInt(10);
-        return randomValue < agility;
+        return (randomValue + agility) > (monsterAgility * 2);
     }
 
     public void takeDamage(int damage) {
@@ -82,16 +82,17 @@ public class Player implements ICombat {
             setExperience(0);
             setFullHealth(getFullHealth() + 10);
             setCurrentHealth(getFullHealth());
-            setIntelligence(getIntelligence() + 2);
-            setAgility(getAgility() + 2);
-            setStrength(getStrength() + 2);
-            setBaseDamage(getBaseDamage() + 2);
+            setIntelligence(getIntelligence() + (random.nextInt(3) +1));
+            setAgility(getAgility() + (random.nextInt(3) +1));
+            setStrength(getStrength() + (random.nextInt(3) +1));
+            setBaseDamage(getBaseDamage() + (random.nextInt(3) +1));
             System.out.println("You leveled up!");
     }
 
     public void gainedExp(int exp) {
         this.experience += exp;
-        if (experience >= 10) {
+        int levelNeed = 10 + (this.level - 1) * 5;
+        if (experience >= levelNeed) {
             levelUp();
         }
     }

@@ -53,14 +53,15 @@ public class PlayerTest {
     }
 
     @Test
-    public void TestDidDodge() {
-        boolean didDodge = testPlayer.didDodge();
+    void TestDidDodge() {
+        int monsterAgility = 8;
+        boolean didDodge = testPlayer.didDodge(monsterAgility);
 
-        assertTrue(didDodge || !didDodge);
+        assertTrue(didDodge || !didDodge, "The result should be true or false");
     }
 
     @Test
-    public void testIsAlive() {
+    void testIsAlive() {
         testPlayer.setCurrentHealth(0);
 
         boolean isAlive = testPlayer.isAlive();
@@ -69,17 +70,17 @@ public class PlayerTest {
     }
 
     @Test
-    public void testPlayerLoses() {
+    void testPlayerLoses() {
         int startHealth = testPlayer.getCurrentHealth();
 
-        testPlayer.takeDamage(startHealth + 1);;
+        testPlayer.takeDamage(startHealth + 1);
 
         assertFalse(testPlayer.isAlive());
     }
 }
 
 /* TODO - What could go wrong?
- *  Compare datatypes (String, Int)
+ *  Compare datatype (String, Int)
  *  Wrong value
  *  Wrong code - return value
  *  Percent value
