@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="418d8702-a519-4197-947a-220335b35cd9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Test/PlayerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Colors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DungeonRun.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DungeonRun.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/PlayerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/ICombat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/ICombat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Monster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +60,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.PlayerTest.testIsAlive">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.Rasmus.demo.Main" />
       <module name="DungeonRun" />
@@ -75,11 +74,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTest.TestDidDodge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DungeonRun" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="PlayerTest" />
-      <option name="METHOD_NAME" value="TestDidDodge" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayerTest.testCalculateDamage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DungeonRun" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
+      <option name="METHOD_NAME" value="testCalculateDamage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -95,21 +103,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTest.testLevelUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlayerTest.testPlayerLoses" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DungeonRun" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="PlayerTest" />
-      <option name="METHOD_NAME" value="testLevelUp" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PlayerTest.testTakeDamage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DungeonRun" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
-      <option name="METHOD_NAME" value="testTakeDamage" />
+      <option name="METHOD_NAME" value="testPlayerLoses" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -117,11 +115,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PlayerTest.testIsAlive" />
-        <item itemvalue="JUnit.PlayerTest.TestDidDodge" />
-        <item itemvalue="JUnit.PlayerTest.testLevelUp" />
-        <item itemvalue="JUnit.PlayerTest.testTakeDamage" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.PlayerTest.testCalculateDamage" />
+        <item itemvalue="JUnit.PlayerTest.testPlayerLoses" />
+        <item itemvalue="JUnit.PlayerTest.testIsAlive" />
+        <item itemvalue="JUnit.PlayerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -136,7 +134,7 @@
       <workItem from="1699544235032" duration="60000" />
       <workItem from="1699544611098" duration="37875000" />
       <workItem from="1700089432599" duration="55000" />
-      <workItem from="1700228316850" duration="6352000" />
+      <workItem from="1700228316850" duration="16706000" />
     </task>
     <servers />
   </component>

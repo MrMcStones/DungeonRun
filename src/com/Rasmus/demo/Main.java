@@ -4,13 +4,13 @@ import static com.Rasmus.demo.Colors.*;
 public class Main {
     public static void main(String[] args) {
 
-        Player player = new Player(5, 5,
-                5, 100, 100, 1, 50);
+        Player player = new Player(1, 1,
+                1, 20, 20, 1, 5);
 
         Monster[] monsters = new Monster[]{
-                new Monster("Thrall", 2, 10, 10, 10, 5),
-                new Monster("Dragon", 10, 10, 100, 100, 5),
-                new Monster("Sorcerer", 6, 10, 30, 30, 5)
+                new Monster(GREEN + "Thrall", 1, 1, 5, 5, 1),
+                new Monster(PURPLE + "Dragon", 10, 10, 100, 100, 5),
+                new Monster(BLUE + "Sorcerer", 1, 3, 30, 30, 3)
         };
 
         Game game = new Game(player, monsters);

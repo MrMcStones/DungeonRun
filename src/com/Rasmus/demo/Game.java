@@ -1,6 +1,8 @@
 package com.Rasmus.demo;
 
 import static com.Rasmus.demo.Colors.*;
+
+import java.sql.SQLOutput;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -20,17 +22,17 @@ public class Game {
         System.out.println(YELLOW + "Welcome to the DungeonRun!");
         System.out.println("What is your name?");
         player.setName(sc.nextLine());
-        System.out.println("Nice to meet you " + player.getName() + ", good luck on your adventure!");
+        System.out.println("Nice to meet you " + GREEN + player.getName() + YELLOW + ", good luck on your adventure!");
 
         boolean quit = false;
         do {
-            System.out.println("""
-                    What would you like to do?
+            System.out.println("What would you like to do?" + GREEN +
+                    """
                     
                     1. Look for an encounter
                     2. Check your status
                     3. Exit Game
-                    """);
+                    """ + YELLOW);
 
             switch (sc.nextLine()) {
                 case "1" : fightMenu(player);
@@ -42,64 +44,72 @@ public class Game {
                     System.out.println("Invalid choice. Select a valid option.");
             }
         } while (!quit);
-        System.out.println("Thanks for playing!");
+        System.out.println("Thank you for playing!");
         sc.close();
     }
 
     public void fightMenu(Player player) {
-
-        Monster monster = monsters[new Random().nextInt(monsters.length)];
-        System.out.println("You encountered a " + monster.getName());
-        System.out.println("Health: " + monster.getFullHealth());
-        System.out.println();
-
         do {
-            System.out.println("""
-                    1. Battle
-                    2. Flee
-                    3. Check your status
-                    4. Check opponents status
-                    """);
+            Monster monster = monsters[new Random().nextInt(monsters.length)];
+            System.out.println(YELLOW + "You encountered a " + monster.getName());
+            System.out.println(RED + "Health: " + monster.getFullHealth() + YELLOW);
+            System.out.println();
 
-            switch (sc.nextLine()) {
-                case "1" -> battle(player, monster);
-                case "2" -> player.flee(monster);
-                case "3" -> player.getStatus();
-                case "4" -> monster.getStatus();
+            do {
+                System.out.println("What would you like to do " + GREEN + player.getName() + YELLOW + "?" + GREEN);
+                System.out.println("""
+                        1. Battle
+                        2. Flee
+                        3. Check your status
+                        4. Check opponents status
+                        5. Exit game
+                        """);
 
-                default -> System.out.println("Invalid choice. Select a valid option.");
-            }
-        } while (player.isAlive() && monster.isAlive());
+                switch (sc.nextLine()) {
+                    case "1" -> battle(player, monster);
+                    case "2" -> {
+                        player.flee(monster);
+                        if (player.isAlive()) {
+                            fightMenu(player);
+                        }
+                    }
+                    case "3" -> player.getStatus();
+                    case "4" -> monster.getStatus();
+                    case "5" -> System.exit(0);
 
+                    default -> System.out.println("Invalid choice. Select a valid option.");
+                }
+            } while (player.isAlive() && monster.isAlive());
+        } while (player.isAlive());
     }
 
     public void battle(Player player, Monster monster) {
-        System.out.println("Inside Battle");
+        System.out.println(YELLOW + "Inside Battle");
 
         int playerDamage = player.calculateDamage();
 
-        System.out.println("You attacked the: " + monster.getName() + " for " + playerDamage
+        System.out.println("You attacked the: " + RED + monster.getName() + YELLOW + " for " + playerDamage
                 + " damage!");
         monster.takeDamage(player.calculateDamage());
-        System.out.println(monster.getName() + " remaining health: " + monster.getCurrentHealth());
+        System.out.println(RED + monster.getName() + YELLOW + " remaining health: " + monster.getCurrentHealth());
 
         int monsterDamage = monster.attack(player);
 
-        if (monster.getCurrentHealth() > 0) {
+        if (monster.getCurrentHealth() >= 1) {
 
             player.takeDamage(monster.calculateDamage());
             System.out.println("You took " + monsterDamage + " damage!");
             System.out.println(player.getName() + " remaining health: " + player.getCurrentHealth());
             System.out.println();
         } else {
-            System.out.println("You slayed the " + monster.getName());
+            System.out.println("You slayed the " + RED + monster.getName());
             player.gainedExp(random.nextInt(monster.getFullHealth()));
             System.out.println();
             fightMenu(player);
         }
 
         if (player.getCurrentHealth() <= 0) {
-            System.out.println("You died...");
+            System.out.println(PURPLE_BOLD + "You died...");
             System.out.println("""
                     1. Restart with a new encounter and full health
                     2. Exit game

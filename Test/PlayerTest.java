@@ -2,8 +2,7 @@ import com.Rasmus.demo.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest {
     private Player testPlayer;
@@ -11,13 +10,13 @@ public class PlayerTest {
     @BeforeEach
     public void testPlayer() {
         testPlayer = new Player(
-                5,
-                5,
-                5,
-                100,
-                100,
                 1,
-                50);
+                1,
+                1,
+                20,
+                20,
+                1,
+                5);
     }
 
     @Test
@@ -25,7 +24,17 @@ public class PlayerTest {
 
         testPlayer.takeDamage(5);
 
-        assertEquals(95, testPlayer.getCurrentHealth());
+        assertEquals(15, testPlayer.getCurrentHealth());
+    }
+
+    @Test
+    public void testCalculateDamage() {
+        testPlayer.setStrength(1);
+        testPlayer.setBaseDamage(5);
+
+        int calculateDamage = testPlayer.calculateDamage();
+
+        assertEquals(6, calculateDamage, "Expected: 6, actual: " + calculateDamage);
     }
 
     @Test
@@ -35,12 +44,12 @@ public class PlayerTest {
 
         assertEquals(2, testPlayer.getLevel());
         assertEquals(0, testPlayer.getExperience());
-        assertEquals(110, testPlayer.getFullHealth());
-        assertEquals(110, testPlayer.getCurrentHealth());
-        assertEquals(7, testPlayer.getIntelligence());
-        assertEquals(7, testPlayer.getAgility());
-        assertEquals(7, testPlayer.getStrength());
-        assertEquals(52, testPlayer.getBaseDamage());
+        assertEquals(30, testPlayer.getFullHealth());
+        assertEquals(30, testPlayer.getCurrentHealth());
+        assertEquals(3, testPlayer.getIntelligence());
+        assertEquals(3, testPlayer.getAgility());
+        assertEquals(3, testPlayer.getStrength());
+        assertEquals(7, testPlayer.getBaseDamage());
     }
 
     @Test
@@ -52,9 +61,20 @@ public class PlayerTest {
 
     @Test
     public void testIsAlive() {
+        testPlayer.setCurrentHealth(0);
+
         boolean isAlive = testPlayer.isAlive();
 
-        assertTrue(isAlive);
+        assertFalse(isAlive);
+    }
+
+    @Test
+    public void testPlayerLoses() {
+        int startHealth = testPlayer.getCurrentHealth();
+
+        testPlayer.takeDamage(startHealth + 1);;
+
+        assertFalse(testPlayer.isAlive());
     }
 }
 

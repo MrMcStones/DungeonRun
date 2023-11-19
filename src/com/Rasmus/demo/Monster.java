@@ -2,7 +2,7 @@ package com.Rasmus.demo;
 
 import static com.Rasmus.demo.Game.random;
 
-public class Monster {
+public class Monster implements ICombat{
     private String name;
     private int strength;
     private int agility;

@@ -2,7 +2,7 @@ package com.Rasmus.demo;
 
 import java.util.Random;
 
-public class Player {
+public class Player implements ICombat {
     private String name;
     private int strength;
     private int intelligence;
@@ -58,7 +58,7 @@ public class Player {
     }
 
     public boolean isAlive() {
-        return fullHealth > 0;
+        return currentHealth > 0;
     }
 
     private void levelUp() {
@@ -157,15 +157,13 @@ public class Player {
     }
 
     public void getStatus() {
-        System.out.printf("Character Name: %s %n", name);
-        System.out.printf("Level: %d %n", level);
-        System.out.printf("Experience: %d %n", experience);
-        System.out.println("\nHealth: " + currentHealth + "/" + fullHealth);
-        System.out.printf("BaseDamage: %d %n", baseDamage);
-        System.out.printf("\nStrength: %d %n", strength);
-        System.out.printf("Intelligence: %d %n", intelligence);
-        System.out.printf("Agility: %d %n", agility);
-        System.out.println();
+        System.out.printf("%sCharacter Name: %s %n", Colors.GREEN_BOLD, name);
+        System.out.printf("%sLevel: %s%d %n", Colors.CYAN_BOLD, Colors.CYAN, level);
+        System.out.printf("%sExperience: %s%d %n", Colors.YELLOW_BOLD, Colors.YELLOW, experience);
+        System.out.printf("\n%sHealth: %s%d/%d %n", Colors.RED_BOLD, Colors.RED, currentHealth, fullHealth);
+        System.out.printf("%sBaseDamage: %s%d %n", Colors.PURPLE_BOLD, Colors.PURPLE, baseDamage);
+        System.out.printf("\n%sStrength: %s%d %n", Colors.RED_BOLD, Colors.RED, strength);
+        System.out.printf("%sIntelligence: %s%d %n", Colors.BLUE_BOLD, Colors.BLUE, intelligence);
+        System.out.printf("%sAgility: %s%d %n%n", Colors.YELLOW_BOLD, Colors.YELLOW, agility);
     }
-
 }
