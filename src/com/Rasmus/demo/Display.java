@@ -10,7 +10,8 @@ public class Display {
                 
                 1. Look for an encounter
                 2. Check your status
-                3. Exit Game
+                3. Go to the shop
+                4. Exit Game
                 """ + YELLOW);
     }
     public static void fightMenu(Player player) {
@@ -20,7 +21,8 @@ public class Display {
                         2. Flee
                         3. Check your status
                         4. Check opponents status
-                        5. Exit game
+                        5. Go to the shop
+                        6. Exit game
                         """);
     }
 

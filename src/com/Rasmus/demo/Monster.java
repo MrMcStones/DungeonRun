@@ -23,15 +23,29 @@ public class Monster implements ICharacter {
         return (getBaseDamage() + random.nextInt(getStrength()));
     }
 
-    public int attack(Player player) {
+    public int attack(Player player, ShopItem equippedArmor) {
         int monsterDamage = calculateDamage();
         if (player.didDodge(getAgility())) {
             System.out.println("You dodged the attack!");
             return 0;
         } else {
-            player.takeDamage(monsterDamage);
-            return monsterDamage;
+            int finalDamage = calculateFinalDamage(monsterDamage, equippedArmor);
+
+            player.takeDamage(finalDamage);
+            return finalDamage;
         }
+    }
+
+    private int calculateFinalDamage(int baseDamage, ShopItem equippedArmor) {
+        int finalDamage = baseDamage;
+
+        if (equippedArmor != null && equippedArmor.getType() == ItemType.Armor) {
+            finalDamage -= 2;
+            if (finalDamage < 0) {
+                finalDamage = 0;
+            }
+        }
+        return finalDamage;
     }
 
     public void takeDamage(int damage) {

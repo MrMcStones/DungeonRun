@@ -11,10 +11,12 @@ public class Game {
 
     Player player;
     Monster[] monsters;
+    private Shop shop;
 
     public Game(Player player, Monster[] monsters) {
         this.player = player;
         this.monsters = monsters;
+        this.shop = new Shop(player);
     }
 
     public void start() {
@@ -31,7 +33,8 @@ public class Game {
             switch (choice) {
                 case "1" -> fightMenu(player);
                 case "2" -> player.getStatus();
-                case "3" -> quit = true;
+                case "3" -> shop.shopMenu();
+                case "4" -> quit = true;
 
                 default ->
                     System.out.println(RED + "Invalid choice. Type in your choice with the corresponding number." + YELLOW);
@@ -60,7 +63,8 @@ public class Game {
                     }
                     case "3" -> player.getStatus();
                     case "4" -> monster.getStatus();
-                    case "5" -> exitGame();
+                    case "5" -> shop.shopMenu();
+                    case "6" -> exitGame();
 
                     default -> System.out.println(RED + "Invalid choice. Type in your choice with the corresponding number." + YELLOW);
                 }
@@ -79,13 +83,14 @@ public class Game {
         System.out.println(RED + monster.getName() + YELLOW + " remaining health: " + monster.getCurrentHealth());
 
         if (monster.getCurrentHealth() >= 1) {
-            int monsterDamage = monster.attack(player);
+            int monsterDamage = monster.attack(player, player.getEquippedArmor());
             System.out.println("You took " + monsterDamage + " damage!");
             System.out.println(GREEN + player.getName() + YELLOW + " remaining health: " + player.getCurrentHealth());
             System.out.println();
         } else {
             System.out.println("You slayed the " + RED + monster.getName());
             player.gainedExp(random.nextInt(monster.getFullHealth()));
+            player.gainedCurrency();
             System.out.println();
             fightMenu(player);
         }

@@ -16,7 +16,8 @@ public class PlayerTest {
                 20,
                 20,
                 1,
-                5);
+                5,
+                0);
     }
 
     @Test

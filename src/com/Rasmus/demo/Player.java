@@ -14,8 +14,12 @@ public class Player implements ICharacter {
     private int experience;
     private int level;
     private int baseDamage;
+    private int currency;
+    private ShopItem equippedWeapon;
+    private ShopItem equippedArmor;
+    private ShopItem equippedRing;
 
-    public Player(int strength, int intelligence, int agility, int fullHealth, int currentHealth, int level, int baseDamage) {
+    public Player(int strength, int intelligence, int agility, int fullHealth, int currentHealth, int level, int baseDamage, int currency) {
         this.strength = strength;
         this.intelligence = intelligence;
         this.agility = agility;
@@ -23,6 +27,7 @@ public class Player implements ICharacter {
         this.currentHealth = currentHealth;
         this.level = level;
         this.baseDamage = baseDamage;
+        this.currency = currency;
     }
 
     public int calculateDamage() {
@@ -86,7 +91,7 @@ public class Player implements ICharacter {
             setAgility(getAgility() + (random.nextInt(3) +1));
             setStrength(getStrength() + (random.nextInt(3) +1));
             setBaseDamage(getBaseDamage() + (random.nextInt(3) +1));
-            System.out.println("You leveled up!");
+            System.out.println(Colors.RED_BOLD + "You leveled up!");
     }
 
     public void gainedExp(int exp) {
@@ -95,6 +100,41 @@ public class Player implements ICharacter {
         if (experience >= levelNeed) {
             levelUp();
         }
+    }
+
+    public void gainedCurrency() {
+        int gold = new Random().nextInt(5) + 1;
+        this.currency += gold;
+
+        System.out.println(Colors.YELLOW + "You found " + Colors.YELLOW_BOLD_BRIGHT + gold + " gold " + Colors.YELLOW + "from the defeated monster!");
+    }
+
+    public void purchaseItem(ShopItem item) {
+        if (currency >= item.getPrice() && !item.isPurchased()) {
+            currency -= item.getPrice();
+            item.setPurchased(true);
+        }
+    }
+
+    public void equipItem (ShopItem item) {
+        if (!item.isEquipped()) {
+            switch (item.getType()) {
+                case Weapon -> {
+                    baseDamage += 2;
+                    equippedWeapon = item;
+                }
+                case Armor -> equippedArmor = item;
+                case Ring -> {
+                    agility += 2;
+                    equippedRing = item;
+                }
+            }
+            item.setEquipped(true);
+        }
+    }
+
+    public ShopItem getEquippedArmor() {
+        return equippedArmor;
     }
 
     public void fullHeal() {
@@ -173,14 +213,35 @@ public class Player implements ICharacter {
         this.baseDamage = baseDamage;
     }
 
+    public int getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(int currency) {
+        this.currency = currency;
+    }
+
     public void getStatus() {
         System.out.printf("%sCharacter Name: %s %n", Colors.GREEN_BOLD, name);
         System.out.printf("%sLevel: %s%d %n", Colors.CYAN_BOLD, Colors.CYAN, level);
         System.out.printf("%sExperience: %s%d %n", Colors.YELLOW_BOLD, Colors.YELLOW, experience);
+        System.out.printf("%sCurrency: %s%d %n", Colors.WHITE_BOLD_BRIGHT, Colors.WHITE_BRIGHT, currency);
         System.out.printf("\n%sHealth: %s%d/%d %n", Colors.RED_BOLD, Colors.RED, currentHealth, fullHealth);
         System.out.printf("%sBaseDamage: %s%d %n", Colors.PURPLE_BOLD, Colors.PURPLE, baseDamage);
         System.out.printf("\n%sStrength: %s%d %n", Colors.RED_BOLD, Colors.RED, strength);
         System.out.printf("%sIntelligence: %s%d %n", Colors.BLUE_BOLD, Colors.BLUE, intelligence);
         System.out.printf("%sAgility: %s%d %n%n", Colors.YELLOW_BOLD, Colors.YELLOW, agility);
+
+        System.out.println("Equipped items:");
+        if (equippedWeapon != null) {
+            System.out.println("Weapon: " + Colors.GREEN_BOLD + equippedWeapon.getName());
+        }
+        if (equippedArmor != null) {
+            System.out.println("Armor: " + Colors.GREEN_BOLD + equippedArmor.getName());
+        }
+        if (equippedRing != null) {
+            System.out.println("Accessory: " + Colors.GREEN_BOLD + equippedRing.getName());
+        }
+        System.out.println();
     }
 }
