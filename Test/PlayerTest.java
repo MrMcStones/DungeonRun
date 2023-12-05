@@ -1,4 +1,4 @@
-import com.Rasmus.demo.Player;
+import com.Rasmus.demo.characters.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

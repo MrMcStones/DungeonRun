@@ -1,6 +1,11 @@
-package com.Rasmus.demo;
+package com.Rasmus.demo.game;
 
-import static com.Rasmus.demo.Colors.*;
+import com.Rasmus.demo.characters.Monster;
+import com.Rasmus.demo.characters.Player;
+import com.Rasmus.demo.shop.Shop;
+import com.Rasmus.demo.userInterface.Display;
+
+import static com.Rasmus.demo.userInterface.Colors.*;
 
 import java.io.IOException;
 import java.util.Random;
@@ -8,7 +13,7 @@ import java.util.Scanner;
 
 public class Game {
     static Scanner sc = new Scanner(System.in);
-    static Random random = new Random();
+    public static Random random = new Random();
 
     Player player;
     Monster[] monsters;

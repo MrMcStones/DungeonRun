@@ -1,6 +1,8 @@
-package com.Rasmus.demo;
+package com.Rasmus.demo.userInterface;
 
-import static com.Rasmus.demo.Colors.*;
+import com.Rasmus.demo.characters.Player;
+
+import static com.Rasmus.demo.userInterface.Colors.*;
 
 public class Display {
 

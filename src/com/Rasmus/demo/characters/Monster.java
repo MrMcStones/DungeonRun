@@ -1,6 +1,11 @@
-package com.Rasmus.demo;
+package com.Rasmus.demo.characters;
 
-import static com.Rasmus.demo.Game.random;
+import com.Rasmus.demo.interfaceClasses.ICharacter;
+import com.Rasmus.demo.shop.ItemType;
+import com.Rasmus.demo.shop.ShopItem;
+import com.Rasmus.demo.userInterface.Colors;
+
+import static com.Rasmus.demo.game.Game.random;
 
 public class Monster implements ICharacter {
     private String name;

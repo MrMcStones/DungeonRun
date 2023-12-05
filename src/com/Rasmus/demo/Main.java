@@ -1,5 +1,10 @@
 package com.Rasmus.demo;
-import static com.Rasmus.demo.Colors.*;
+import com.Rasmus.demo.characters.Monster;
+import com.Rasmus.demo.characters.Player;
+import com.Rasmus.demo.game.Game;
+import com.Rasmus.demo.shop.Shop;
+
+import static com.Rasmus.demo.userInterface.Colors.*;
 
 public class Main {
     public static void main(String[] args) {

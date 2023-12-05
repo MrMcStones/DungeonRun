@@ -1,4 +1,4 @@
-package com.Rasmus.demo;
+package com.Rasmus.demo.shop;
 
 public enum ItemType {
         Weapon,

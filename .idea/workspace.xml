@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="418d8702-a519-4197-947a-220335b35cd9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/ScoreFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/ItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/ItemType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/ShopItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/ShopItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/PlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/player_score.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Colors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/userInterface/Colors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/userInterface/Display.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/ICharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/interfaceClasses/ICharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/ItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/shop/ItemType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/characters/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/characters/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/ScoreFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/game/ScoreFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/shop/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/ShopItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/shop/ShopItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +76,7 @@
       <module name="DungeonRun" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.Rasmus.demo.*" />
+          <option name="PATTERN" value="com.Rasmus.demo.characters.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -142,7 +148,7 @@
       <workItem from="1700228316850" duration="33150000" />
       <workItem from="1700429308631" duration="11000" />
       <workItem from="1701701832597" duration="20188000" />
-      <workItem from="1701778355989" duration="6696000" />
+      <workItem from="1701778355989" duration="8515000" />
     </task>
     <servers />
   </component>

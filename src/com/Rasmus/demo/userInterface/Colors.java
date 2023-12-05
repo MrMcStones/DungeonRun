@@ -1,4 +1,4 @@
-package com.Rasmus.demo;
+package com.Rasmus.demo.userInterface;
 
 public class Colors {
 

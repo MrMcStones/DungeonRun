@@ -1,10 +1,12 @@
-package com.Rasmus.demo;
+package com.Rasmus.demo.shop;
+
+import com.Rasmus.demo.characters.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.Rasmus.demo.Colors.*;
+import static com.Rasmus.demo.userInterface.Colors.*;
 
 public class Shop {
     private List<ShopItem> availableItems;

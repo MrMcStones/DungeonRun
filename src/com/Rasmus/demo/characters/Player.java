@@ -1,10 +1,14 @@
-package com.Rasmus.demo;
+package com.Rasmus.demo.characters;
+
+import com.Rasmus.demo.userInterface.Colors;
+import com.Rasmus.demo.interfaceClasses.ICharacter;
+import com.Rasmus.demo.shop.ShopItem;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import static com.Rasmus.demo.Game.random;
+import static com.Rasmus.demo.game.Game.random;
 
 public class Player implements ICharacter {
     private String name;

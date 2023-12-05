@@ -1,4 +1,6 @@
-package com.Rasmus.demo;
+package com.Rasmus.demo.game;
+
+import com.Rasmus.demo.characters.Player;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -21,7 +23,9 @@ public class ScoreFile {
             Map<String, Integer> monstersKilledMap = player.getMonstersKilledMap();
             writer.println("Monsters killed by type: ");
             for (Map.Entry<String, Integer> entry : monstersKilledMap.entrySet()) {
-                writer.println(entry.getKey() + ": " + entry.getValue());
+                String monsterName = entry.getKey();
+                int count = entry.getValue();
+                writer.println(monsterName + ": " + count);
             }
         } catch (IOException e) {
             e.printStackTrace();
