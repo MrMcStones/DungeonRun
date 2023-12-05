@@ -1,0 +1,12 @@
+Player name: Rasmus
+Player level: 5
+Equipped weapon: Item: Name = ' Axe', Type = Weapon, Use = Weapon, Price = 8
+Equipped armor: Item: Name = ' Armor', Type = Armor, Use = Armor, Price = 10
+Equipped accessory: Item: Name = ' Ring', Type = Accessory, Use = Accessory, Price = 4
+Monsters killed: 13
+Monsters killed by type: 
+[0;35mDragon: 1
+[0;34mSorcerer: 2
+[0;32mZombie: 6
+[0;36mThrall: 2
+[0;31mGremlin: 2

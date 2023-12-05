@@ -1,5 +1,7 @@
 package com.Rasmus.demo;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import static com.Rasmus.demo.Game.random;
@@ -17,7 +19,9 @@ public class Player implements ICharacter {
     private int currency;
     private ShopItem equippedWeapon;
     private ShopItem equippedArmor;
-    private ShopItem equippedRing;
+    private ShopItem Accessory;
+    private int monstersKilled;
+    private Map<String, Integer> monstersKilledMap;
 
     public Player(int strength, int intelligence, int agility, int fullHealth, int currentHealth, int level, int baseDamage, int currency) {
         this.strength = strength;
@@ -28,6 +32,8 @@ public class Player implements ICharacter {
         this.level = level;
         this.baseDamage = baseDamage;
         this.currency = currency;
+        monstersKilled = 0;
+        monstersKilledMap = new HashMap<>();
     }
 
     public int calculateDamage() {
@@ -124,17 +130,38 @@ public class Player implements ICharacter {
                     equippedWeapon = item;
                 }
                 case Armor -> equippedArmor = item;
-                case Ring -> {
+                case Accessory -> {
                     agility += 2;
-                    equippedRing = item;
+                    Accessory = item;
                 }
             }
             item.setEquipped(true);
         }
     }
 
+    public void addMonstersKilled(Monster monster) {
+        monstersKilled++;
+        monstersKilledMap.merge(monster.getName(), 1, Integer::sum);
+    }
+
+    public int getMonstersKilled() {
+        return monstersKilled;
+    }
+
+    public Map<String, Integer> getMonstersKilledMap() {
+        return new HashMap<>(monstersKilledMap);
+    }
+
     public ShopItem getEquippedArmor() {
         return equippedArmor;
+    }
+
+    public ShopItem getEquippedWeapon() {
+        return equippedWeapon;
+    }
+
+    public ShopItem getAccessory() {
+        return Accessory;
     }
 
     public void fullHeal() {
@@ -234,13 +261,13 @@ public class Player implements ICharacter {
 
         System.out.println("Equipped items:");
         if (equippedWeapon != null) {
-            System.out.println("Weapon: " + Colors.GREEN_BOLD + equippedWeapon.getName());
+            System.out.println("Weapon: " + Colors.GREEN_BOLD + equippedWeapon.getName() + " " + Colors.PURPLE_BOLD + equippedWeapon.getUse());
         }
         if (equippedArmor != null) {
-            System.out.println("Armor: " + Colors.GREEN_BOLD + equippedArmor.getName());
+            System.out.println("Armor: " + Colors.GREEN_BOLD + equippedArmor.getName() + " " + Colors.PURPLE_BOLD + equippedArmor.getUse());
         }
-        if (equippedRing != null) {
-            System.out.println("Accessory: " + Colors.GREEN_BOLD + equippedRing.getName());
+        if (Accessory != null) {
+            System.out.println("Accessory: " + Colors.GREEN_BOLD + Accessory.getName() + " " + Colors.PURPLE_BOLD + Accessory.getUse());
         }
         System.out.println();
     }

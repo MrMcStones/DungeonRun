@@ -5,7 +5,7 @@ import static com.Rasmus.demo.Colors.*;
 public class Display {
 
     public static void startMenu(Player player) {
-        System.out.println("What would you like to do?" + GREEN +
+        System.out.println(YELLOW + "What would you like to do?" + GREEN +
                 """
                 
                 1. Look for an encounter

@@ -20,14 +20,14 @@ public class Shop {
     private void initializeShopItems() {
         availableItems.add(new ShopItem("Axe", 8, ItemType.Weapon, "+2 BaseDamage"));
         availableItems.add(new ShopItem("Breastplate", 10, ItemType.Armor, "-2 DamageTaken"));
-        availableItems.add(new ShopItem("Ring", 4, ItemType.Ring, "+2 Agility"));
+        availableItems.add(new ShopItem("Ring", 4, ItemType.Accessory, "+2 Agility"));
     }
 
     public void displayItems() {
         System.out.println(YELLOW + "Available items in shop:" + GREEN);
         for (int i = 0; i < availableItems.size(); i++) {
             ShopItem item = availableItems.get(i);
-            System.out.println(i + 1 + ". " + item.getName() + " - Price: " + YELLOW + item.getPrice() + " gold" + GREEN);
+            System.out.println(i + 1 + ". " + item.getName() + PURPLE + " - Effect: " + item.getUse() + YELLOW + " - Price: " + item.getPrice() + " gold" + GREEN);
         }
         System.out.println("4. Exit the shop");
         System.out.println("Your " + YELLOW + "gold: " + player.getCurrency());

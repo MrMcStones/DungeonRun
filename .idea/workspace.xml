@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="418d8702-a519-4197-947a-220335b35cd9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/ItemType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Shop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/ShopItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/ScoreFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/PlayerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Display.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/ItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/ItemType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Rasmus/demo/ShopItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Rasmus/demo/ShopItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -143,7 +141,8 @@
       <workItem from="1700089432599" duration="55000" />
       <workItem from="1700228316850" duration="33150000" />
       <workItem from="1700429308631" duration="11000" />
-      <workItem from="1701701832597" duration="19902000" />
+      <workItem from="1701701832597" duration="20188000" />
+      <workItem from="1701778355989" duration="6696000" />
     </task>
     <servers />
   </component>

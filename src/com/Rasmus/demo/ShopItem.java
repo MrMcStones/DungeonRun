@@ -64,4 +64,11 @@ public class ShopItem {
     public void setEquipped(boolean equipped) {
         this.equipped = equipped;
     }
+
+    public String toString() {
+        return "Name = '" + name + '\'' +
+                ", Type = " + type +
+                ", Use = " + type +
+                ", Price = " + price;
+    }
 }

@@ -2,6 +2,7 @@ package com.Rasmus.demo;
 
 import static com.Rasmus.demo.Colors.*;
 
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -91,6 +92,7 @@ public class Game {
             System.out.println("You slayed the " + RED + monster.getName());
             player.gainedExp(random.nextInt(monster.getFullHealth()));
             player.gainedCurrency();
+            player.addMonstersKilled(monster);
             System.out.println();
             fightMenu(player);
         }
@@ -118,6 +120,12 @@ public class Game {
 
     public void exitGame() {
         System.out.println(YELLOW + "Thank you for playing!");
+        try {
+            ScoreFile.writeScoreFile(player);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         System.exit(0);
     }
 }
